@@ -1,0 +1,253 @@
+<div class="parent">
+  <div class="container">
+    <div class="py-4">
+      <div class="header  px-4 py-4 m-0 g-2 d-flex justify-content-between align-items-center">
+        <h2 class="px-4 header-title">Books</h2>
+        <button class="btn btn-outline-info" routerLink="/admin/books/addBook">Add Book</button>
+      </div>
+    </div>
+    <div class="activeDiv">
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'showAllBooks'"
+        (click)="setActiveDiv('showAllBooks');showAll()">
+        <div class="num">{{AllBook.length}}</div>
+        <div class="title">
+          All Books
+        </div>
+      </div>
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'showFreeBooks'"
+        (click)="setActiveDiv('showFreeBooks');showFree()">
+        <div class="num">{{AllFreeBook.length}}</div>
+        <div class="title">
+          Free Books
+        </div>
+      </div>
+      <div class="child  d-flex flex-column" [class.active]="activeDiv === 'showPaidBooks'"
+        (click)="setActiveDiv('showPaidBooks');showPaid()">
+        <div class="num">{{AllPaidBook.length}}</div>
+        <div class="title">
+          Paid Books
+        </div>
+      </div>
+    </div>
+    <div *ngIf="showAllBooks">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="icon my-4" (click)="sortTableByReads()">
+          <a>
+            <i class="fa-solid fa-sort"></i>
+          </a>
+          <span class="mx-3">Ascending sort by reading</span>
+        </div>
+        <div class="icon my-4" (click)="sortTableByDownload()">
+          <a>
+            <i class="fa-solid fa-sort"></i>
+          </a>
+          <span class="mx-3">Ascending sort by Downloads</span>
+        </div>
+      </div>
+
+      <div class="table-wrapper childs">
+        <div *ngIf="AllBook.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="AllBook.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Department</th>
+              <th scope="col">Language</th>
+              <th scope="col">Num Of Pages</th>
+              <th scope="col">Num Of Downloads</th>
+              <th scope="col">Num Of Reads</th>
+              <th scope="col">Price</th>
+              <th scope="col">Size Of Book</th>
+              <th scope="col">Photo</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let book of AllBook">
+            <tr>
+              <td>
+                <h6>{{book.id}}</h6>
+              </td>
+              <td>
+                <h6>{{book.Name}}</h6>
+              </td>
+              <td>
+                <h6>{{book.Author}}</h6>
+              </td>
+              <td>
+                <h6>{{book.Department}}</h6>
+              </td>
+              <td>
+                <h6>{{book.Language}}</h6>
+              </td>
+              <td>
+                <h6>{{book.NumOfPages}}</h6>
+              </td>
+              <td>
+                <h6>{{book.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{book.NumOfReads}}</h6>
+              </td>
+              <td>
+                <h6>{{book.Price}}</h6>
+              </td>
+              <td>
+                <h6>{{book.Size}} MB</h6>
+              </td>
+              <td>
+                <img src="assets/{{book.Photo}}" alt="">
+              </td>
+              <td>
+                <div>
+                  <a routerLink="/admin/editBook/{{book.id}}">
+                    <i class="fa-solid fa-pen-to-square"></i></a>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div *ngIf="showFreeBooks">
+      <div class="icon my-4" routerLink="/admin/freeBook">
+        <a>
+          <i class="fa-solid fa-circle-info"></i>
+
+        </a>
+        <span class="mx-3">More Details...</span>
+      </div>
+
+      <div class="table-wrapper childs">
+        <div *ngIf="AllFreeBook.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="AllFreeBook.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Department</th>
+              <th scope="col">Language</th>
+              <th scope="col">Num Of Pages</th>
+              <th scope="col">Num Of Downloads</th>
+              <th scope="col">Num Of Reads</th>
+              <th scope="col">Size Of Book</th>
+              <th scope="col">Photo</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let free of AllFreeBook">
+            <tr>
+              <td>
+                <h6>{{free.id}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Name}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Author}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Department}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Language}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfPages}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Size}} MB</h6>
+              </td>
+              <td>
+                <img src="assets/{{free.Photo}}" alt="">
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="showPaidBooks">
+      <div class="icon my-4" routerLink="/admin/paidBook">
+        <a>
+          <i class="fa-solid fa-circle-info"></i>
+
+        </a>
+        <span class="mx-3">More Details...</span>
+      </div>
+      <div class="table-wrapper childs">
+        <div *ngIf="AllPaidBook.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="AllPaidBook.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Department</th>
+              <th scope="col">Language</th>
+              <th scope="col">Num Of Pages</th>
+              <th scope="col">Num Of Downloads</th>
+              <th scope="col">Num Of Reads</th>
+              <th scope="col">Price</th>
+              <th scope="col">Size Of Book</th>
+              <th scope="col">Photo</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let paid of AllPaidBook">
+            <tr>
+              <td>
+                <h6>{{paid.id}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Name}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Author}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Department}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Language}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfPages}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfReads}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Price}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Size}} MB</h6>
+              </td>
+              <td>
+                <img src="assets/{{paid.Photo}}" alt="">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

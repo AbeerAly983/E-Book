@@ -1,0 +1,13 @@
+.parent {
+    height: 118vh !important;
+}
+
+.alert-warning {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    padding: 20px !important;
+    z-index: 1;
+}

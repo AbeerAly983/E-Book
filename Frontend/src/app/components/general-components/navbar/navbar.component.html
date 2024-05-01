@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg navbar-color px-3 px-sm-5">
+
+  <div class="position-fixed dark-icon" (click)="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i></div>
+
+  <a class="navbar-brand d-flex align-items-center ps-lg-5 ps-md-3 ps-0" routerLink="/home">
+    <img src="../../../assets/logo-dark.png" width="40" height="100%" class="d-inline-block" alt="logo">
+    <h4 class="my-0 mx-2">
+      <span style="color:var(--text-logo-color)">book</span>
+      <span style="color:var(--secondary-color)">vendor</span>
+    </h4>
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <div class="collapse navbar-collapse mx-3 mx-sm-5 justify-content-between" id="navbarNavDropdown">
+    <ul class="navbar-nav general-ul">
+
+      <li class="nav-item p-lg-3 py-1">
+        <a class="nav-link" routerLink="/home">Home</a>
+      </li>
+
+      <li class="nav-item dropdown p-lg-3 py-1">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownServices" data-bs-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu py-lg-2 py-0" aria-labelledby="navbarDropdownServices">
+          <a class="dropdown-item ps-lg-3 pe-lg-5 px-0 py-3" routerLink="/categories/classic Literature">
+            Classic Literature
+          </a>
+          <a class="dropdown-item ps-lg-3 pe-lg-5 px-0 py-3" routerLink="/categories/science">
+            Science
+          </a>
+          <a class="dropdown-item ps-lg-3 pe-lg-5 px-0 py-3" routerLink="/categories/historical">
+            Historical
+          </a>
+          <a class="dropdown-item ps-lg-3 pe-lg-5 px-0 py-3" routerLink="/categories/adventure">
+            Adventure
+          </a>
+          <a class="dropdown-item ps-lg-3 pe-lg-5 px-0 py-3" routerLink="/categories/fantasy">
+            Fantasy
+          </a>
+        </div>
+      </li>
+
+      <li class="nav-item p-lg-3 py-1">
+        <a class="nav-link">About</a>
+      </li>
+
+      <li class="nav-item p-lg-3 py-1">
+        <a class="nav-link">Contact</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav auth-ul align-items-lg-center justify-content-lg-between">
+      <li class="nav-item px-lg-3 py-2 my-1" *ngIf="!checkNav()" id="login" routerLink="/login">
+        Login
+      </li>
+
+      <li class="nav-item px-lg-3 py-2 my-1 selected" *ngIf="!checkNav()" routerLink="/signup">
+        SignUp
+      </li>
+
+      <li class="dropdown" *ngIf="checkNav()" (mouseenter)="selected=true" (mouseleave)="selected=false">
+        <div class="nav-item px-lg-3 py-2 my-1 dropdown-toggle" id="navbarDropdownServices" data-bs-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" [class.selected]="selected">
+          Profile
+        </div>
+
+        <div class="dropdown-menu py-lg-2 py-0" aria-labelledby="navbarDropdownServices">
+          <a class="dropdown-item ps-lg-3 pe-lg-5 px-0 py-3" routerLink="/profile/showYourPaidBooks">
+            Show Your Paid Books
+          </a>
+          <a class="dropdown-item ps-lg-3 pe-lg-5 px-0 py-3" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            Change Password
+          </a>
+        </div>
+      </li>
+
+      <li class="nav-item px-lg-3 py-2 my-1" [class.selected]="!selected" *ngIf="checkNav()" (click)="logout()">
+        Logout
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- show offcanvas change password -->
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"
+  *ngIf="checkNav()">
+  <div class="offcanvas-header justify-content-end p-4">
+    <a class="text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="fa-solid fa-close close"></i>
+    </a>
+  </div>
+  <div class="offcanvas-body">
+    <app-chang-user-password></app-chang-user-password>
+  </div>
+</div>

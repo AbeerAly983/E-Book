@@ -1,0 +1,22 @@
+<!-- carousel.component.html -->
+<owl-carousel-o [options]="Options">
+    <ng-template carouselSlide *ngFor="let item of carouselData">
+        <div class="slider" routerLink="/bookDetails/{{item.id}}">
+            <!-- Your content here -->
+            <img class="card-img-top" [src]="'assets/' + item.Photo" alt="photo" />
+            <div class="details p-3">
+                <h5>{{ item.Name }}</h5>
+                <p>{{ item.Author }}</p>
+                <div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="price" *ngIf="item.Price !== '0'">${{ item.Price }}</h6>
+                        <button class="btn btn-outline-info" *ngIf="item.Price !== '0'"
+                            [routerLink]="item.buyLink">Buy</button>
+                        <button class="btn btn-outline-info w-100" *ngIf="item.Price === '0'">Free</button>
+                    </div>
+                </div>
+            </div>
+            <!-- End of your content -->
+        </div>
+    </ng-template>
+</owl-carousel-o>

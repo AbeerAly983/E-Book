@@ -1,0 +1,23 @@
+.text{
+    margin-bottom: 35px !important;
+}
+
+#backSignup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+}
+
+#backSignup p:hover {
+    color: var(--text-hover);
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.fa-arrow-left {
+    font-size: 13px;
+    padding: 5px 10px;
+}

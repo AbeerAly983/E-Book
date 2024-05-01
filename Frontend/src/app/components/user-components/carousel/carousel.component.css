@@ -1,0 +1,47 @@
+/* ..carousel.. */
+
+.slider {
+    position: relative;
+    width: 96%;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.5s;
+    box-shadow: rgb(255 255 255 / 15%) 0px 1px 3px 0px, rgb(0 0 0 / 20%) 0px 1px 2px 0px;
+    border-radius: 2%;
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    overflow: hidden;
+}
+
+.slider:hover {
+    box-shadow: 0 1px 8px -3px var(--text-hover);
+}
+
+.slider img {
+    height: 315px !important;
+}
+
+.slider .details h5 {
+    font-size: 18px;
+}
+
+.slider .details p {
+    font-size: 15px;
+    color: #7f7f7f;
+}
+
+.slider .btn {
+    border-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 15px;
+    border-radius: 25px;
+    width: 50%;
+    transition: all .5s;
+}
+
+.slider .btn:hover {
+    border-color: var(--secondary-color);
+    color: var(--main-color);
+    background-color: var(--secondary-color);
+    transition: all .5s;
+}

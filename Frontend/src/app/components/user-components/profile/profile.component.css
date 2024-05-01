@@ -1,0 +1,71 @@
+.parent {
+    padding-top: 86.5px;
+    min-height: 100vh;
+}
+
+.text-color {
+    color: var(--text-color);
+}
+
+.gray-color {
+    color: #7f7f7f;
+}
+
+.parent {
+    padding-top: 86.5px;
+}
+
+.parent .box {
+    background-color: var(--sub-main-color);
+    box-shadow: 0 1px 10px -7px var(--secondary-color);
+    transition: all 0.5s;
+}
+
+.btn {
+    border-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 12px;
+    width: 220px;
+    border-radius: 25px;
+    transition: all 0.5s;
+}
+
+.btn:hover {
+    border-color: var(--secondary-color);
+    color: var(--main-color);
+    background-color: var(--secondary-color);
+    transition: all 0.5s;
+}
+
+.card-body .details h6 {
+    color: var(--text-color);
+    transition: all .5s;
+    font-size: 15px;
+}
+
+.card-body .details p {
+    color: var(--secondary-color);
+    transition: all .5s;
+    font-size: 15px;
+}
+
+.img-fluid {
+    max-height: 500px;
+}
+
+.check-access svg {
+    font-size: 11px;
+    margin-left: 5px;
+}
+
+
+.view-all {
+    font-size: 14px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all .5s;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}

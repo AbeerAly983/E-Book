@@ -1,0 +1,180 @@
+::placeholder {
+  font-size: 13px;
+}
+
+.parent {
+  padding-top: 86.5px;
+}
+
+.parent .header {
+  background-color: var(--sub-main-color);
+  box-shadow: 0 1px 10px -7px var(--secondary-color);
+  transition: all 0.5s;
+  border-radius: 10px;
+  color: var(--text-color);
+}
+
+.parent .header .title {
+  font-weight: 500;
+}
+.parent .header .btn {
+  letter-spacing: 2px;
+  border-color: var(--secondary-color);
+  color: var(--text-color);
+  border-radius: 15px;
+  padding: 16px;
+  width: 20%;
+  font-size: 18px;
+  transition: all 0.5s;
+}
+
+.parent .header .btn:hover {
+  border-color: var(--secondary-color);
+  color: var(--main-color);
+  background-color: var(--secondary-color);
+  transition: all 0.5s;
+}
+
+.activeDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0;
+  gap: 30px;
+  color: var(--text-color);
+}
+.activeDiv .child {
+  height: 200px;
+  width: 100%;
+  transition: all 0.5s;
+  border-radius: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid var(--secondary-color);
+  cursor: pointer;
+  box-shadow: 0px 1px 1px 1px var(--grad-color);
+}
+
+.activeDiv .child:hover {
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+  border-color: var(--main-color);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  transition: all 0.5s;
+}
+.child.active {
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+  border-color: var(--main-color);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  transition: all 0.5s;
+}
+.activeDiv .child .title,
+.activeDiv .child .num {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 18px;
+}
+img {
+  width: 80px;
+  height: 80px;
+  margin-top: -20px;
+}
+.fa-pen-to-square {
+  color: var(--secondary-color);
+}
+.icon .fa-circle-info,
+.icon .fa-sort {
+  font-size: 20px;
+  color: var(--secondary-color);
+}
+
+.icon span {
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.5s ease;
+}
+.icon span:hover {
+  padding-left: 4px;
+  text-decoration: underline;
+}
+
+.table-wrapper {
+  overflow-y: auto;
+  overflow-x: auto;
+  height: fit-content;
+  text-align: center;
+  margin-bottom: 50px;
+  max-height: 100vh;
+  padding: 0 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 3px 0px var(--text-logo-color);
+}
+
+tbody,
+td,
+tfoot,
+th,
+tr {
+  border-style: none;
+}
+
+thead {
+  color: var(--text-color);
+  border-bottom: 2px solid var(--text-logo-color);
+  height: 70px;
+}
+
+td {
+  padding: 1.5rem 0.5rem;
+}
+
+th {
+  padding: 20px 10px;
+}
+
+h6 {
+  color: var(--text-color);
+}
+@media screen and (max-width: 767px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .parent .header .btn {
+    width: 70%;
+    border-color: var(--secondary-color);
+    color: var(--main-color);
+    background-color: var(--secondary-color);
+    transition: all 0.5s;
+  }
+}
+@media screen and (max-width: 441px) {
+  .activeDiv {
+    display: flex;
+    flex-direction: column;
+  }
+  .activeDiv .child {
+    width: 90%;
+  }
+}
+/* Add animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.table-wrapper {
+  animation: fadeIn 0.8s ease-in-out;
+}
+.icon {
+  animation: fadeIn 0.8s ease-in-out;
+}

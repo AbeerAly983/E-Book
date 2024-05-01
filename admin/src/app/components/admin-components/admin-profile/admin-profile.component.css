@@ -1,0 +1,84 @@
+::placeholder {
+  font-size: 13px;
+}
+
+.parent {
+  padding-top: 86.5px;
+}
+
+.parent .content {
+  background-color: var(--sub-main-color);
+  box-shadow: 0 1px 10px -7px var(--secondary-color);
+  transition: all 0.5s;
+  border-radius: 10px;
+}
+
+.parent .content .profile-content {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+}
+.parent .content .profile-content img {
+  border-radius: 50%;
+  height: 160px;
+  width: 160px;
+  padding: 5px;
+  border: 5px solid var(--main-color);
+}
+
+.parent .child {
+  height: 200px;
+  color: var(--secondary-color);
+  width: 100%;
+  transition: all 0.5s;
+  border-radius: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid var(--secondary-color);
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 0px var(--grad-color);
+}
+
+.py-4 {
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.parent .child:hover {
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+  border-color: var(--main-color);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  transition: all 0.5s;
+}
+
+.parent .child .text {
+  font-weight: bold;
+  font-size: 20px;
+}
+@media (max-width: 768px) {
+  .py-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  }
+}
+@media (max-width: 576px) {
+  .py-4 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 460px) {
+  .parent .content .profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .parent .content .profile-content .px-5 {
+    padding-right: 0px !important;
+    margin-top: 14px;
+  }
+}

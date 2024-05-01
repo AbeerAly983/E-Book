@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+  .activeDiv {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(243px, 1fr)) !important;
+  }
+}
+@media screen and (max-width: 441px) {
+  .activeDiv {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .activeDiv .child {
+    width: 90% !important;
+  }
+}

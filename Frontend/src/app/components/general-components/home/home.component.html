@@ -1,0 +1,169 @@
+<div class="header d-flex align-items-center">
+    <div class="container">
+        <div class="row py-lg-0 py-5 justify-content-between">
+            <div class="col-lg-6 col-12 mb-lg-0 mb-4">
+                <div class="d-flex align-items-center mb-5 title">
+                    <i class="fa-solid fa-circle"></i>
+                    <p class="mb-0 ms-1">Your next great ead is waiting</p>
+                </div>
+                <h1 class="text-color">The world's largest</h1>
+                <h1 class="text-color">book community</h1>
+                <p class="my-4 text-color">With a staggering selection of over 500 million books at your disposal,
+                    there's an
+                    excellent chance that you'll uncover a literary treasure perfectly tailored to your taste and
+                    preferences.</p>
+                <input type="search" placeholder="Search books by name..." class="form-control p-2 mb-4"
+                    [(ngModel)]="searchTerm" (input)="searchBook()">
+                <div class="browse-btn">Browse books</div>
+            </div>
+            <div class="col-lg-5 col-12 d-lg-block d-none" [class.d-none]="searchTerm">
+                <img src="../../../../assets/back-header.jpg" width="100%" height="100%" class="rounded-4 secOneImg"
+                    alt="back-header">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div [class.d-none]="showSearch">
+    <div class="section-one box">
+        <div class="container">
+            <div class="row pb-5 pt-75">
+                <div class="col-lg-5 col-12">
+                    <div class="d-flex align-items-center mb-4 title">
+                        <i class="fa-solid fa-circle"></i>
+                        <p class="mb-0 ms-1">Why choose Bookvendor</p>
+                    </div>
+                    <h2 class="text-color">Best way to mange your</h2>
+                    <h2 class="text-color">reading life</h2>
+                    <p class="my-4 text-color">Keep track of what you're reading. set reading goals, and connect with
+                        friends to share
+                        your book reviews.</p>
+                </div>
+                <div class="col-12 mt-5">
+                    <div class="row">
+                        <div class="col-md-4 mb-md-0 mb-3 card-discover">
+                            <i class="fa-solid fa-search mb-4"></i>
+                            <h4 class="mb-4">Book Discovery</h4>
+                            <p>Discover new books to read on your interests, reading history, and the recommendations of
+                                other users.
+                            </p>
+                        </div>
+                        <div class="col-md-4 mb-md-0 mb-3 card-discover">
+                            <i class="fa-solid fa-users mb-4"></i>
+                            <h4 class="mb-4">Friends and Community</h4>
+                            <p>You can connect with friends, family members, and other people who share your love of
+                                reading.
+                            </p>
+                        </div>
+                        <div class="col-md-4 card-discover">
+                            <i class="fa-solid fa-star mb-4"></i>
+                            <h4 class="mb-4">Book Reviews</h4>
+                            <p>You can write reviews of books that you 've read and share your thoughts with other
+                                Bookvendor users.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-two box">
+        <div class="container">
+            <div class="row py-5 justify-content-between align-items-center">
+                <div class="col-lg-5 col-12 mb-lg-0 mb-4">
+                    <img src="../../../../assets/back-body.jpg" width="100%" height="450px" class="rounded-4"
+                        alt="back-header">
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="d-flex align-items-center mb-4 title">
+                        <i class="fa-solid fa-circle"></i>
+                        <p class="mb-0 ms-1">Nothing else comes close</p>
+                    </div>
+                    <h2 class="text-color">The best way to discover, track, and</h2>
+                    <h2 class="text-color">share your reading life</h2>
+                    <p class="my-4 text-color">From discovering new books to tracking your reading progress to
+                        connecting
+                        with other
+                        readers, Bookvendor has everything you need to manage our reading life.</p>
+                    <div class="browse-btn">Browse books</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popular-books box">
+        <div class="container">
+            <div class="row py-5 parent">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="text-color">Popular Books</h2>
+                    <a class="view-all" routerLink="/viewAll/allBooks">
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <app-carousel [carouselData]="allBook"></app-carousel>
+            </div>
+        </div>
+    </div>
+
+    <div class="best-sellers box">
+        <div class="container">
+            <div class="row py-5 parent">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="text-color">Best Sellers</h2>
+                    <a class="view-all" routerLink="/viewAll/bestSellers">
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <app-carousel [carouselData]="paidBook"></app-carousel>
+            </div>
+        </div>
+    </div>
+
+    <div class="free-books box">
+        <div class="container">
+            <div class="row pt-5 pb-75 parent">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="text-color">Free Books</h2>
+                    <a class="view-all" routerLink="/viewAll/freeBooks">
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <app-carousel [carouselData]="freeBook"></app-carousel>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w-100" *ngIf="showSearch">
+    <div class="parent p-0">
+        <div class="container">
+            <div class="py-5">
+                <div class="content row px-4 py-5 m-0">
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngFor="let book of filteredBooks">
+                        <div class="card justify-content-between" routerLink="/bookDetails/{{book.id}}">
+                            <img [src]="'assets/'+ book.Photo" alt="book-img" width="100%" height="315px">
+                            <div class="px-3 pb-3 content-card">
+                                <h5>{{book.Name}}</h5>
+                                <p>{{book.Author}}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="price" *ngIf="book.Price!='0'">${{book.Price}}</h6>
+                                    <button class="btn btn-outline-info" *ngIf="book.Price!='0'"
+                                        routerLink="/myCart/{{book.id}}">Buy</button>
+                                    <button class="btn btn-outline-info w-100" *ngIf="book.Price=='0'">Free</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 *ngIf="filteredBooks.length==0" class="text-center text-color no-found">
+                        <i class="fa-solid fa-ban"></i>
+                        No data found!
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

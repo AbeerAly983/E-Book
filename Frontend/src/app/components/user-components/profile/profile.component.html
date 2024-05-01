@@ -1,0 +1,69 @@
+<div class="parent">
+    <div class="container">
+        <div class="my-5 px-xl-5 box">
+            <!-- book details -->
+            <div class="row py-4 justify-content-xl-between justify-content-evenly">
+                <h4 class="text-center text-color" *ngIf="books.length==0">No books here yet!</h4>
+                <div class="col-xl-5 col-md-8 col-10 my-3" *ngFor="let book of books">
+                    <div class="row">
+                        <div class="col-lg-5 col-sm-6 d-flex">
+                            <img [src]="'assets/' + book.Photo" class="img-fluid rounded w-100" alt="Book Photo"
+                                *ngIf="book.Photo" />
+                        </div>
+                        <div class="col-lg-7 col-sm-6 my-3 pe-0 content">
+                            <div class="card-body">
+                                <h4 class="text-color">{{book.Name}}</h4>
+                                <h5 class="gray-color">{{book.Author}}</h5>
+                                <div class="d-flex flex-column justify-content-evenly mt-4 details">
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Category</h6>
+                                        <p>{{book.Department}}</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Pages</h6>
+                                        <p>{{book.NumOfPages}}</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Size</h6>
+                                        <p>{{book.Size}}</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>Price</h6>
+                                        <p>${{book.Price}}</p>
+                                    </div>
+                                    <div class="d-flex gap-2 align-items-end mt-2 check-access">
+                                        <button class="btn btn-outline-info" (click)="getSrcPaidBook(book.id)">
+                                            Read
+                                            <i class="fa-regular fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-outline-info" (click)="getSrcPaidBookDownload(book.id)">
+                                            Download
+                                            <i class="fa-solid fa-download"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end book-details -->
+
+        </div>
+    </div>
+</div>
+
+<div class="popular-books box">
+    <div class="container">
+        <div class="row py-5 parent">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-color">Popular Books</h2>
+                <a class="view-all" routerLink="/viewAll/allBooks">
+                    View All
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <app-carousel [carouselData]="allBook"></app-carousel>
+        </div>
+    </div>
+</div>

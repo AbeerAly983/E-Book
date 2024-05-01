@@ -1,0 +1,121 @@
+/* shared */
+
+.pt-75 {
+    padding-top: 75px;
+}
+
+.pb-75 {
+    padding-bottom: 80px;
+}
+
+.title {
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    background-color: var(--sub-main-color);
+    border-radius: 25px;
+    width: fit-content;
+    padding: 5px 15px;
+    font-size: 13px;
+    transition: all 0.5s;
+}
+
+::placeholder {
+    font-size: 13px;
+}
+
+.fa-circle {
+    font-size: 10px;
+}
+
+.browse-btn {
+    cursor: pointer;
+    color: var(--main-color);
+    background-color: var(--secondary-color);
+    border: 1px solid transparent;
+    border-radius: 25px;
+    width: fit-content;
+    padding: 10px 20px;
+    font-size: 15px;
+    transition: all 0.5s;
+}
+
+.browse-btn:hover {
+    color: var(--secondary-color);
+    background-color: var(--main-color);
+    border: 1px solid var(--secondary-color);
+}
+
+.text-color {
+    color: var(--text-color);
+}
+
+/* animation when scroll */
+.box {
+    transform: translateX(-100%);
+    transition: all .8s;
+}
+
+.show {
+    transform: translateX(0);
+}
+
+/* header */
+
+.header {
+    background-color: var(--sub-main-color);
+    padding-top: 86.5px;
+    transition: background-color .5s;
+    min-height: 100vh;
+}
+
+.header .title {
+    background-color: var(--main-color);
+}
+
+.header .form-control {
+    width: 70%;
+    border-color: var(--text-logo-color);
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    transition: all 0.5s;
+}
+
+.header .form-control:focus {
+    border-color: var(--text-logo-color);
+    box-shadow: var(--box-shadow-form-control);
+}
+
+/* section 1*/
+
+.section-one .card-discover {
+    color: var(--secondary-color);
+    text-align: center;
+    transition: all .5s;
+}
+
+.section-one .card-discover svg {
+    font-size: 25px;
+}
+
+.section-one .card-discover:hover {
+    transform: scale(1.03);
+    overflow: hidden;
+    color: var(--text-hover);
+}
+
+.section-one .card-discover:hover svg {
+    transform: rotate(360deg);
+    transition: all 1s;
+}
+
+
+.view-all {
+    font-size: 14px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all .5s;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}

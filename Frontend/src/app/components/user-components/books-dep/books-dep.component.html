@@ -1,0 +1,28 @@
+<div class="parent">
+    <div class="container">
+        <div class="py-5">
+            <input type="search" placeholder="Search books by name..." class="form-control p-2 mb-4" (input)="searchBook()" [(ngModel)]="searchTerm">
+            <div class="content row px-4 py-5 m-0">
+                <h2 class="text-color mb-5 text-capitalize">{{bookType}} Books</h2>
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4" *ngFor="let book of books">
+                    <div class="card justify-content-between" routerLink="/bookDetails/{{book.id}}">
+                        <img [src]="'assets/' + book.Photo" alt="book-img" width="100%" height="315px">
+                        <div class="px-3 pb-3 content-card">
+                            <h5>{{book.Name}}</h5>
+                            <p>{{book.Author}}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6 class="price" *ngIf="book.Price!='0'">${{book.Price}}</h6>
+                                    <button class="btn btn-outline-info" *ngIf="book.Price!='0'" routerLink="/myCart/{{book.id}}">Buy</button>
+                                    <button class="btn btn-outline-info w-100" *ngIf="book.Price=='0'">Free</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4 *ngIf="books?.length==0" class="text-center text-color no-found">
+                    <i class="fa-solid fa-ban"></i>
+                    No data found!
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>

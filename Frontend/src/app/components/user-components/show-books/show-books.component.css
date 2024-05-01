@@ -1,0 +1,123 @@
+.py-80 {
+    padding: 80px 0;
+}
+
+.text-color {
+    color: var(--text-color);
+}
+
+::placeholder {
+    font-size: 13px;
+}
+
+.parent {
+    padding-top: 86.5px;
+}
+
+.parent .form-control {
+    width: 100%;
+    border-color: var(--text-logo-color);
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    transition: all .5s;
+}
+
+.parent .form-control:focus {
+    border-color: var(--text-logo-color);
+    box-shadow: var(--box-shadow-form-control);
+}
+
+.parent .content {
+    background-color: var(--sub-main-color);
+    box-shadow: 0 1px 10px -7px var(--secondary-color);
+    transition: all .5s;
+}
+
+.parent .content .card {
+    height: 450px;
+    box-shadow: rgb(255 255 255 / 15%) 0px 1px 3px 0px, rgb(0 0 0 / 20%) 0px 1px 2px 0px;
+    background-color: var(--sub-main-color);
+    color: var(--secondary-color);
+    border: none;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.parent .content .card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 1px 8px -3px var(--text-hover);
+}
+
+.parent .content .card .btn {
+    border-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 15px;
+    border-radius: 25px;
+    width: 50%;
+    transition: all .5s;
+}
+
+.parent .content .card .btn:hover {
+    border-color: var(--secondary-color);
+    color: var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+.parent .content .card h5 {
+    font-size: 18px;
+}
+
+.parent .content .card p {
+    font-size: 15px;
+    color: #7f7f7f;
+}
+
+.parent .content .nav {
+    font-size: 14px;
+}
+
+@media (max-width:576px) {
+    .parent .content .nav {
+        font-size: 12px;
+    }
+}
+
+.parent .content .nav .nav-item {
+    color: var(--secondary-color);
+    transition: all .5s;
+    position: relative;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.parent .content .nav .nav-item:hover {
+    color: var(--text-hover);
+}
+
+.parent .content .nav-item::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--secondary-color);
+    transition: all .5s;
+    display: block;
+}
+
+.parent .content .nav .nav-item:hover::after {
+    width: 100%;
+    background-color: var(--text-hover);
+}
+
+.active-nav {
+    border-bottom: 2px solid var(--text-hover);
+    color: var(--text-hover) !important;
+}
+
+
+/* no found data */
+.no-found {
+    text-shadow: 0px 0px 20px #ffb300;
+    margin: 0;
+}

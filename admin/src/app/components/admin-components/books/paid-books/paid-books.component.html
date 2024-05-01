@@ -1,0 +1,284 @@
+<div class="parent">
+  <div class="container">
+    <div class="activeDiv">
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Paid_Books'"
+        (click)="setActiveDiv('show_Paid_Free_Books');showAll()">
+        <div class="num">{{numOfAllPaidBooks.numAllPaidBooks}}</div>
+        <div class="title">
+          All Paid Books
+        </div>
+      </div>
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Paid_Books_This_Day'"
+        (click)="setActiveDiv('show_All_Paid_Books_This_Day');showPaidThisDay()">
+        <div class="num">{{numOfAllPaidBooks.numPaidBooksAddToday}}</div>
+        <div class="title">
+          Paid Books Added Today
+        </div>
+      </div>
+      <div class="child  d-flex flex-column" [class.active]="activeDiv === 'show_All_Paid_Books_This_Month'"
+        (click)="setActiveDiv('show_All_Paid_Books_This_Month');showPaidThisMonth()">
+        <div class="num">{{numOfAllPaidBooks.numPaidBooksAddThisMonth}}</div>
+        <div class="title">
+          Paid Books Added This Month
+        </div>
+      </div>
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Paid_Books_This_Year'"
+        (click)="setActiveDiv('show_All_Paid_Books_This_Year');showPaidThisYear()">
+        <div class="num">{{numOfAllPaidBooks.numPaidBooksaAddThisYear}}</div>
+        <div class="title">
+          Paid Books Added This Year
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="show_All_Paid_Books">
+      <div class="table-wrapper childs">
+        <div *ngIf="allPaidBook.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allPaidBook.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Department</th>
+              <th scope="col">Language</th>
+              <th scope="col">Num Of Pages</th>
+              <th scope="col">Num Of Downloads</th>
+              <th scope="col">Num Of Reads</th>
+              <th scope="col">Price</th>
+              <th scope="col">Size Of Book</th>
+              <th scope="col">Photo</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let paid of allPaidBook">
+            <tr>
+              <td>
+                <h6>{{paid.id}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Name}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Author}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Department}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Language}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfPages}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Price}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Size}} MB</h6>
+              </td>
+              <td>
+                <img src="assets/{{paid.Photo}}" alt="">
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div *ngIf="show_All_Paid_Books_This_Day">
+
+      <div class="table-wrapper childs">
+        <div *ngIf="allPaidBookAddedToday.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allPaidBookAddedToday.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Department</th>
+              <th scope="col">Language</th>
+              <th scope="col">Num Of Pages</th>
+              <th scope="col">Num Of Downloads</th>
+              <th scope="col">Num Of Reads</th>
+              <th scope="col">Price</th>
+              <th scope="col">Size Of Book</th>
+              <th scope="col">Photo</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let paid of allPaidBookAddedToday">
+            <tr>
+              <td>
+                <h6>{{paid.id}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Name}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Author}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Department}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Language}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfPages}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Price}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Size}} MB</h6>
+              </td>
+              <td>
+                <img src="assets/{{paid.Photo}}" alt="">
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="show_All_Paid_Books_This_Month">
+      <div class="table-wrapper childs">
+        <div *ngIf="allPaidBookAddedThisMonth.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allPaidBookAddedThisMonth.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Department</th>
+              <th scope="col">Language</th>
+              <th scope="col">Num Of Pages</th>
+              <th scope="col">Num Of Downloads</th>
+              <th scope="col">Num Of Reads</th>
+              <th scope="col">Price</th>
+              <th scope="col">Size Of Book</th>
+              <th scope="col">Photo</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let paid of allPaidBookAddedThisMonth">
+            <tr>
+              <td>
+                <h6>{{paid.id}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Name}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Author}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Department}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Language}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfPages}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Price}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Size}} MB</h6>
+              </td>
+              <td>
+                <img src="assets/{{paid.Photo}}" alt="">
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="show_All_Paid_Books_This_Year">
+      <div class="table-wrapper childs">
+        <div *ngIf="allPaidBookAddedThisYear.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allPaidBookAddedThisYear.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Department</th>
+              <th scope="col">Language</th>
+              <th scope="col">Num Of Pages</th>
+              <th scope="col">Num Of Downloads</th>
+              <th scope="col">Num Of Reads</th>
+              <th scope="col">Price</th>
+              <th scope="col">Size Of Book</th>
+              <th scope="col">Photo</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let paid of allPaidBookAddedThisYear">
+            <tr>
+              <td>
+                <h6>{{paid.id}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Name}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Author}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Department}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Language}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfPages}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Price}}</h6>
+              </td>
+              <td>
+                <h6>{{paid.Size}} MB</h6>
+              </td>
+              <td>
+                <img src="assets/{{paid.Photo}}" alt="">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

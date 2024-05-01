@@ -1,0 +1,157 @@
+.footer {
+  background-color: var(--sub-main-color);
+  color: var(--secondary-color);
+  transition: all 0.5s;
+}
+
+.container-fluid {
+  min-height: fit-content !important;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.social-network {
+  font-size: 16px;
+}
+
+.copyrights {
+  font-size: 14px;
+}
+
+a {
+  color: var(--secondary-color);
+}
+
+a:hover {
+  color: var(--text-hover);
+}
+
+.details {
+  border-bottom: 1px solid var(--secondary-color);
+  justify-content: space-between;
+}
+
+.col-lg-4 {
+  margin-top: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 120px;
+  height: 120px;
+}
+
+.list {
+  padding: 12px;
+}
+
+hr {
+  opacity: 0;
+}
+
+.select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  margin-top: 14px;
+}
+
+.list ul li {
+  margin-top: 7px;
+}
+
+.link a {
+  text-decoration: none;
+  font-size: 14px !important;
+  margin: 0 0 7px -30px;
+  transition: all 0.5s ease;
+  color: var(--secondary-color);
+}
+
+.list a:hover {
+  padding-left: 7px;
+  color: var(--text-hover);
+}
+
+.fa-angle-down {
+  opacity: 0;
+}
+
+.arrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.active ul {
+  display: block;
+}
+
+.active .fa-angle-down {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 992px) {
+  .container-fluid {
+    width: 98%;
+  }
+
+  .col-lg-4 {
+    margin-top: 0;
+    text-align: center;
+    border-bottom: 1px var(--secondary-color) solid;
+  }
+
+  .logo {
+    justify-content: start;
+    padding: 12px 0;
+  }
+
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo h3 {
+    font-size: 20px;
+  }
+
+  .border-footer {
+    border-bottom: 1px var(--secondary-color) solid;
+  }
+
+  .fa-angle-down {
+    color: var(--secondary-color);
+    opacity: 1;
+    cursor: pointer;
+    float: right;
+    transition: all 0.5s ease;
+  }
+
+  ul {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.text-details {
+  line-height: 2;
+  font-size: 14px;
+  word-spacing: 1px;
+}

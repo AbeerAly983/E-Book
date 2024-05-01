@@ -1,0 +1,19 @@
+.fa-trash {
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.alert {
+  position: fixed;
+  width: 50%;
+  text-align: center;
+  padding: 50px;
+  top: 56%;
+  left: 25%;
+}
+
+.btn {
+  width: 80px;
+  padding: 5px;
+  margin: 5px;
+}

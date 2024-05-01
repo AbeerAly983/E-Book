@@ -1,0 +1,52 @@
+<div class="parent">
+    <div class="container">
+        <div class="my-5 box">
+            <!-- book details -->
+            <div class="book-details">
+                <div class="row py-4 mx-2 justify-content-md-around justify-content-between">
+                    <div class="col-lg-5 col-md-6 d-flex">
+                        <img [src]="'assets/' + bookInfo?.Photo" class="img-fluid rounded w-100" alt="Book Photo"
+                            *ngIf="bookInfo?.Photo" />
+                    </div>
+                    <div class="col-md-6 my-4 content">
+                        <div class="card-body">
+                            <h3 class="text-color">{{bookInfo?.Name}}</h3>
+                            <h5 class="gray-color">{{bookInfo?.Author}}</h5>
+                            <div class="d-flex flex-column justify-content-evenly mt-4 details">
+                                <div class="d-flex justify-content-between">
+                                    <h6>Category</h6>
+                                    <p>{{bookInfo?.Department}}</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Pages</h6>
+                                    <p>{{bookInfo?.NumOfPages}}</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Size</h6>
+                                    <p>{{bookInfo?.Size}}</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6>Price</h6>
+                                    <p>${{bookInfo?.Price}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- form payment -->
+                        <form (ngSubmit)="onSubmitPayment()"
+                            class="mt-4 p-3 position-relative d-flex flex-column align-items-center" id="card">
+                            <div id="card-element" class="p-3 w-100"></div>
+                            <button type="submit" class="btn btn-outline-warning my-3">Submit Payment</button>
+                            <div class="alert alert-warning" role="alert" *ngIf="paymentAlert">
+                                {{paymentMsg}}
+                            </div>
+                        </form>
+                        <!-- end form payment -->
+                    </div>
+                </div>
+            </div>
+            <!-- end book-details -->
+
+        </div>
+    </div>
+</div>

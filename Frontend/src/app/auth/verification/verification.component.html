@@ -1,0 +1,47 @@
+<div class="parent">
+  <div class="container h-100">
+    <div class="py-5 d-flex align-items-center justify-content-center h-100">
+      <div class="child">
+
+        <div class="text">
+          <div class="d-flex align-items-center justify-content-center">
+            <div class="px-2 cursor" (click)="backSignup()"><i class="fa-solid fa-arrow-left"></i></div>
+            <h2>Verification Code</h2>
+          </div>
+          <p>Enter the four digits code that we have sent through your email.</p>
+        </div>
+
+        <form class="login-form" ngNativeValidate (submit)="onVerify()">
+          <div class="alert alert-warning" role="alert" *ngIf="isAlert">
+            {{msgAlert}}
+          </div>
+
+          <div class="d-flex flex-row mt-1 mb-3 gap-2 vr-con">
+            <input type="text" class="form-control text-center" required [disabled]="loading" maxlength="1">
+            <input type="text" class="form-control text-center" required [disabled]="loading" maxlength="1">
+            <input type="text" class="form-control text-center" required [disabled]="loading" maxlength="1">
+            <input type="text" class="form-control text-center" required [disabled]="loading" maxlength="1">
+            <input type="text" class="form-control text-center" required [disabled]="loading" maxlength="1">
+            <input type="text" class="form-control text-center" required [disabled]="loading" maxlength="1">
+          </div>
+
+          <button class="btn d-block border-0 text-white form-control submit my-4" type="submit" [disabled]="loading">
+            <span class="spinner me-2" *ngIf="loading">
+              <i class="fa-solid fa-circle-notch fa-spin"></i>
+            </span>
+            <span class="">Continue</span>
+          </button>
+
+          <div id="backSignup" (click)="ResendCode()">
+            <span class="spinner me-2" *ngIf="isLoading">
+              <i class="fa-solid fa-circle-notch fa-spin"></i>
+            </span>
+            <p class="m-0 cursor">Resend code</p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

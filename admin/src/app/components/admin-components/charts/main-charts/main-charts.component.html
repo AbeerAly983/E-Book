@@ -1,0 +1,79 @@
+<!-- <div class="parent">
+  <div class="container">
+    <div class="py-4">
+      <div class="row">
+        <div class="col-md-6  m-md-0 my-5">
+          <app-user-added-by-year></app-user-added-by-year>
+        </div>
+        <div class="col-md-6 m-md-0 mt-4">
+          <app-users-added-per-month></app-users-added-per-month>
+        </div>
+        <div class="col-md-6  m-md-0 mt-4">
+          <app-all-profits></app-all-profits>
+        </div>
+        <div class="col-md-6  m-md-0 mt-4">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="parent">
+  <div class="container">
+    <div class="activeDiv">
+      <div class="child d-flex" [class.active]="activeDiv === 'Users'" (click)="setActiveDiv('Users');show_users()">
+        <div class="title">
+          Users
+        </div>
+        <div class="num">{{userResponse.numAllUsers}}</div>
+      </div>
+      <div class="child d-flex " [class.active]="activeDiv === 'Profit'" (click)="setActiveDiv('Profit');show_profit()">
+        <div class="title">
+          Profits
+        </div>
+        <div class="num">{{profitResponse.allProfit}}</div>
+      </div>
+      <div class="child  d-flex" [class.active]="activeDiv === 'Book'" (click)="setActiveDiv('Book');show_book()">
+        <div class="title">
+          Books
+        </div>
+        <div class="num">{{bookResponse.numAllSales}}</div>
+      </div>
+    </div>
+    <div class="py-4" *ngIf="Users">
+      <div class="row">
+        <div class="col-md-6  m-md-0 my-5">
+          <app-user-added-by-year></app-user-added-by-year>
+        </div>
+        <div class="col-md-6 m-md-0 mt-4">
+          <app-users-added-per-month></app-users-added-per-month>
+        </div>
+      </div>
+    </div>
+    <div class="py-4" *ngIf="Profit">
+      <div class="row">
+        <div class="col-md-6  m-md-0 my-5">
+          <app-all-profits></app-all-profits>
+        </div>
+        <div class="col-md-6 m-md-0 mt-4">
+          <app-profit-annual></app-profit-annual>
+        </div>
+        <div class="col-md-6 m-md-0 mt-4">
+          <app-monthly-profit></app-monthly-profit>
+        </div>
+      </div>
+    </div>
+    <div class="py-4" *ngIf='Book'>
+      <div class="row">
+        <div class="col-md-6  m-md-0 my-5">
+          <app-all-sales></app-all-sales>
+        </div>
+        <div class="col-md-6 m-md-0 mt-4">
+          <app-book-sales></app-book-sales>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

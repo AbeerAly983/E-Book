@@ -1,0 +1,92 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --main-color: #fff;
+  --sub-main-color: #f4f1ea;
+  --secondary-color: #594639;
+  --text-logo-color: #a19991;
+  --text-color: #1e1e1e;
+  --text-hover: #aa7b0c;
+  --box-shadow-form-control: 0 0 0 0.23rem rgba(78, 60, 17, .25);
+  --grad: radial-gradient(circle, #f4f1ea 50%, #d1c4b8 100%);
+  --card-background: #f4f1ea;
+  --changePass-back-color: rgba(250, 250, 250, 0.97);
+}
+
+.dark-theme {
+  --main-color: #1e1e1e;
+  --sub-main-color: #1a1a1a;
+  --secondary-color: #a19991;
+  --text-logo-color: #fff;
+  --text-color: #fff;
+  --text-hover: #aa7b0c;
+  --box-shadow-form-control: 0 0 0 0.25rem rgba(255, 255, 255, .25);
+  --grad:  radial-gradient(circle, #3f3f3f 0%, #141212 87%);
+  --card-background: #6767676e;
+  --changePass-back-color: rgba(48, 48, 48, 0.97);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  cursor: pointer;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Inter', sans-serif !important;
+  line-height: 1.6;
+  background-color: var(--main-color) !important;
+  transition: background-color 0.5s;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+::selection {
+  background-color: var(--text-hover);
+  color: var(--secondary-color);
+}
+
+/* ........................... */
+
+.parent .owl-next,
+.parent .owl-prev {
+  background-color: var(--secondary-color) !important;
+  color: var(--main-color) !important;
+  border-radius: 25% !important;
+  position: absolute;
+  top: 50%;
+  transition: all 0.2s ease;
+}
+
+.parent .owl-next {
+  right: -35px;
+}
+
+.parent .owl-prev {
+  left: -35px;
+}
+
+@media (max-width: 600px) {
+  .parent .owl-prev ,
+  .parent .owl-next {
+    position: relative;
+    left: 0;
+  }
+}
+
+.parent .owl-next:hover,
+.parent .owl-prev:hover {
+  box-shadow: 0 1px 8px -3px var(--text-hover);
+}

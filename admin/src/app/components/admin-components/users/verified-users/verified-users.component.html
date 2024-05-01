@@ -1,0 +1,174 @@
+<div class="parent">
+  <div class="container">
+    <div class="activeDiv">
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Verify_Users'"
+        (click)="setActiveDiv('show_All_Verify_Users');showAll()">
+        <div class="num">{{numOfAllVerifyUsers.numAllUsers}}</div>
+        <div class="title">
+          All Users
+        </div>
+      </div>
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Verify_Users_This_Day'"
+        (click)="setActiveDiv('show_All_Verify_Users_This_Day');showVerifyThisDay()">
+        <div class="num">{{numOfAllVerifyUsers.numUsersAddedToday}}</div>
+        <div class="title">
+          Users Verified Today
+        </div>
+      </div>
+      <div class="child  d-flex flex-column" [class.active]="activeDiv === 'show_All_Verify_Users_This_Month'"
+        (click)="setActiveDiv('show_All_Verify_Users_This_Month');showVerifyThisMonth()">
+        <div class="num">{{numOfAllVerifyUsers.numUsersAddedThisMonth}}</div>
+        <div class="title">
+          Users Verified This Month
+        </div>
+      </div>
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Verify_Users_This_Year'"
+        (click)="setActiveDiv('show_All_Verify_Users_This_Year');showVerifyThisYear()">
+        <div class="num">{{numOfAllVerifyUsers.numUsersAddedThisYear}}</div>
+        <div class="title">
+          Users Verified This Year
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="show_All_Verify_Users">
+      <div class="table-wrapper childs">
+        <div *ngIf="allVerifyUsers.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allVerifyUsers.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">User Email</th>
+              <th scope="col">Date Of Verify</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let verify of allVerifyUsers">
+            <tr>
+              <td>
+                <h6>{{verify.id}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.name}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.email}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.email_verified_at | date:'dd-MM-yyyy' }}</h6>
+              </td>
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div *ngIf="show_All_Verify_Users_This_Day">
+
+      <div class="table-wrapper childs">
+        <div *ngIf="allVerifyUsersToday.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allVerifyUsersToday.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">User Email</th>
+              <th scope="col">Date Of Verify</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let verify of allVerifyUsersToday">
+            <tr>
+              <td>
+                <h6>{{verify.id}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.name}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.email}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.email_verified_at | date:'dd-MM-yyyy' }}</h6>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="show_All_Verify_Users_This_Month">
+      <div class="table-wrapper childs">
+        <div *ngIf="allVerifyUsersThisMonth.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allVerifyUsersThisMonth.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">User Email</th>
+              <th scope="col">Date Of Verify</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let verify of allVerifyUsersThisMonth">
+            <tr>
+              <td>
+                <h6>{{verify.id}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.name}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.email}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.email_verified_at | date:'dd-MM-yyyy' }}</h6>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="show_All_Verify_Users_This_Year">
+      <div class="table-wrapper childs">
+        <div *ngIf="allVerifyUsersThisYear.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allVerifyUsersThisYear.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">User Email</th>
+              <th scope="col">Date Of Verify</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let verify of allVerifyUsersThisYear">
+            <tr>
+              <td>
+                <h6>{{verify.id}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.name}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.email}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.email_verified_at | date:'dd-MM-yyyy' }}</h6>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

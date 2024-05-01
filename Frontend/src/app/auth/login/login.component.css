@@ -1,0 +1,159 @@
+.parent {
+    height: 100vh;
+    padding-top: 86.5px;
+    background: var(--grad);
+    transition: all .5s;
+    box-shadow: inset 0px 0px 4px -2px var(--secondary-color);
+    color: var(--text-color);
+}
+
+.child {
+    width: 50%;
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.child .logo img {
+    width: 65px;
+    height: 35px;
+}
+
+.text {
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 13px;
+    text-align: center;
+}
+
+.signup #signupContent p {
+    display: none;
+}
+
+.child .login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+::placeholder {
+    color: var(--secondary-color);
+    font-size: 11px;
+}
+
+.child .login-form .form-control {
+    font-size: 14px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    border-color: var(--text-logo-color);
+    color: var(--text-color);
+    padding: 8px;
+}
+
+.child .login-form label {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.login-form span.input-group-text {
+    font-size: 13px;
+    background-color: transparent !important;
+    color: var(--text-color);
+    border-color: var(--text-logo-color);
+    cursor: pointer;
+}
+
+.child .login-form .form-control:focus {
+    box-shadow: var(--box-shadow-form-control);
+}
+
+.child .login-form .is-invalid,
+.child .login-form .is-invalid:focus {
+    box-shadow: 0 0 6px rgb(210 53 63);
+    border-color: rgb(200, 9, 9);
+}
+
+a {
+    font-size: 13px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--text-hover);
+}
+
+.login-form .remember-forget {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-form .remember-forget .form-check-input:checked {
+    background-color: var(--secondary-color);
+    border-color: var(--text-logo-color);
+}
+
+.login-form .remember-forget .form-check-input:focus {
+    box-shadow: none
+}
+
+.login-form .submit {
+    background-color: var(--secondary-color) !important;
+    color: var(--main-color);
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.login-form .submit:hover {
+    box-shadow: 0 0 6px rgb(60, 73, 89, 15%);
+    background-color: #262f39;
+}
+
+.form-check-input:checked #forgetContent .login-form {
+    height: 205px;
+    justify-content: space-between;
+}
+
+.error-text {
+    position: relative;
+    bottom: 12px;
+    left: 12px;
+    font-size: 12px;
+    height: 0;
+}
+
+.alert-warning {
+    padding: 8px;
+    font-size: 15px;
+}
+
+
+@media (max-width: 992px) {
+
+    .container .signup #signupContent p {
+        display: block;
+    }
+
+    .child {
+        width: 95%;
+    }
+}
+
+
+@media (max-width: 360px) {
+
+    .child .login-form label,
+    .container a {
+        font-size: 12px;
+    }
+}

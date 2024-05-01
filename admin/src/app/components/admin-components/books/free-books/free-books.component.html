@@ -1,0 +1,269 @@
+<div class="parent">
+  <div class="container">
+    <div class="activeDiv">
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Free_Books'"
+        (click)="setActiveDiv('show_All_Free_Books');showAll()">
+        <div class="num">{{numOfAllFreeBooks.numAllFreeBooks}}</div>
+        <div class="title">
+          All Free Books
+        </div>
+      </div>
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Free_Books_This_Day'"
+        (click)="setActiveDiv('show_All_Free_Books_This_Day');showFreeThisDay()">
+        <div class="num">{{numOfAllFreeBooks.numFreeBooksAddToday}}</div>
+        <div class="title">
+          Free Books Added Today
+        </div>
+      </div>
+      <div class="child  d-flex flex-column" [class.active]="activeDiv === 'show_All_Free_Books_This_Month'"
+        (click)="setActiveDiv('show_All_Free_Books_This_Month');showFreeThisMonth()">
+        <div class="num">{{numOfAllFreeBooks.numFreeBooksAddThisMonth}}</div>
+        <div class="title">
+          Free Books Added This Month
+        </div>
+      </div>
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Free_Books_This_Year'"
+        (click)="setActiveDiv('show_All_Free_Books_This_Year');showFreeThisYear()">
+        <div class="num">{{numOfAllFreeBooks.numFreeBooksAddThisYear}}</div>
+        <div class="title">
+          Free Books Added This Year
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="show_All_Free_Books">
+      <div class="table-wrapper childs">
+        <div *ngIf="allFreeBook.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allFreeBook.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Department</th>
+              <th scope="col">Language</th>
+              <th scope="col">Num Of Pages</th>
+              <th scope="col">Num Of Downloads</th>
+              <th scope="col">Num Of Reads</th>
+              <th scope="col">Size Of Book</th>
+              <th scope="col">Photo</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let free of allFreeBook">
+            <tr>
+              <td>
+                <h6>{{free.id}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Name}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Author}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Department}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Language}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfPages}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Size}} MB</h6>
+              </td>
+              <td>
+                <img src="assets/{{free.Photo}}" alt="">
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div *ngIf="show_All_Free_Books_This_Day">
+
+      <div class="table-wrapper childs">
+        <div *ngIf="allFreeBookAddedToday.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allFreeBookAddedToday.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Department</th>
+              <th scope="col">Language</th>
+              <th scope="col">Num Of Pages</th>
+              <th scope="col">Num Of Downloads</th>
+              <th scope="col">Num Of Reads</th>
+              <th scope="col">Size Of Book</th>
+              <th scope="col">Photo</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let free of allFreeBookAddedToday">
+            <tr>
+              <td>
+                <h6>{{free.id}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Name}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Author}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Department}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Language}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfPages}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Size}} MB</h6>
+              </td>
+              <td>
+                <img src="assets/{{free.Photo}}" alt="">
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="show_All_Free_Books_This_Month">
+      <div class="table-wrapper childs">
+        <div *ngIf="allFreeBookAddedThisMonth.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allFreeBookAddedThisMonth.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Department</th>
+              <th scope="col">Language</th>
+              <th scope="col">Num Of Pages</th>
+              <th scope="col">Num Of Downloads</th>
+              <th scope="col">Num Of Reads</th>
+              <th scope="col">Size Of Book</th>
+              <th scope="col">Photo</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let free of allFreeBookAddedThisMonth">
+            <tr>
+              <td>
+                <h6>{{free.id}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Name}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Author}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Department}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Language}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfPages}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Size}} MB</h6>
+              </td>
+              <td>
+                <img src="assets/{{free.Photo}}" alt="">
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="show_All_Free_Books_This_Year">
+      <div class="table-wrapper childs">
+        <div *ngIf="allFreeBookAddedThisYear.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allFreeBookAddedThisYear.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">Department</th>
+              <th scope="col">Language</th>
+              <th scope="col">Num Of Pages</th>
+              <th scope="col">Num Of Downloads</th>
+              <th scope="col">Num Of Reads</th>
+              <th scope="col">Size Of Book</th>
+              <th scope="col">Photo</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let free of allFreeBookAddedThisYear">
+            <tr>
+              <td>
+                <h6>{{free.id}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Name}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Author}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Department}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Language}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfPages}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{free.NumOfDownloads}}</h6>
+              </td>
+              <td>
+                <h6>{{free.Size}} MB</h6>
+              </td>
+              <td>
+                <img src="assets/{{free.Photo}}" alt="">
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

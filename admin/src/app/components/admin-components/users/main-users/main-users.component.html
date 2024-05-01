@@ -1,0 +1,117 @@
+<div class="parent">
+  <div class="container">
+
+    <div class="content navbar navbar-expand-md navbar-color px-3 px-sm-5 px-4 py-2">
+      <button class="navbar-toggler mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#click">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="row py-4 collapse navbar-collapse " id="click">
+        <div class="activeDiv">
+          <div class="child d-flex flex-column" [class.active]="activeDiv === 'Verify'"
+            (click)="setActiveDiv('Verify');verifiedusers()">
+            <div class="num">{{numOfAllVerifyUsers.numAllUsers}}</div>
+            <div class="title">
+              Verified Users
+            </div>
+          </div>
+          <div class="child d-flex flex-column" [class.active]="activeDiv === 'NotVerify'"
+            (click)="setActiveDiv('NotVerify');notVerifiedusers()">
+            <div class="num">{{numOfAllNotVerifyUsers.numAllNotVerifyUsers}}</div>
+            <div class="title">
+              Not Verified Users
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container user" *ngIf="Verify">
+      <div class="icon my-4" routerLink="/admin/users/verifiedUsers">
+        <a>
+          <i class="fa-solid fa-circle-info"></i>
+
+        </a>
+        <span class="mx-3">More Details...</span>
+      </div>
+      <div class="table-wrapper childs">
+        <div *ngIf="allVerifyUsers.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allVerifyUsers.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">User Email</th>
+              <th scope="col">Date Of Verify</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let verify of allVerifyUsers">
+            <tr>
+              <td>
+                <h6>{{verify.id}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.name}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.email}}</h6>
+              </td>
+              <td>
+                <h6>{{verify.email_verified_at | date:'dd-MM-yyyy' }}</h6>
+              </td>
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="container user" *ngIf="NotVerify">
+      <div class="icon my-4" routerLink="/admin/users/notVerifiedUsers">
+        <a>
+          <i class="fa-solid fa-circle-info"></i>
+
+        </a>
+        <span class="mx-3">More Details...</span>
+      </div>
+      <div class="table-wrapper childs">
+        <div *ngIf="allNotVerifyUsers.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allNotVerifyUsers.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">User Email</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let not_verify of allNotVerifyUsers">
+            <tr>
+              <td>
+                <h6>{{not_verify.id}}</h6>
+              </td>
+              <td>
+                <h6>{{not_verify.name}}</h6>
+              </td>
+              <td>
+                <h6>{{not_verify.email}}</h6>
+              </td>
+              <td>
+                <div>
+                  <a (click)="valid=true; idCheckAlert=not_verify.id"><i class="fa-solid fa-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+            <div class="alert alert-danger" role="alert" *ngIf="valid && idCheckAlert==not_verify.id">
+              <p>Are you sure, you want to delete item ID:{{not_verify.id}}?</p>
+              <button type="button" class="btn btn-outline-success" (click)="valid=false">Cancel</button>
+              <button type="button" class="btn btn-outline-danger" (click)="deleteUser(not_verify.id)">OK</button>
+            </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

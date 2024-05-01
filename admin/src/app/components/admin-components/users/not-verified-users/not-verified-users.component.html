@@ -1,0 +1,199 @@
+<div class="parent">
+  <div class="container">
+    <div class="activeDiv">
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Not_Verify_Users'"
+        (click)="setActiveDiv('show_All_Not_Verify_Users');showAll()">
+        <div class="num">{{numOfAllNotVerifyUsers.numAllNotVerifyUsers}}</div>
+        <div class="title">
+          All Users
+        </div>
+      </div>
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Not_Verify_Users_This_Day'"
+        (click)="setActiveDiv('show_All_Not_Verify_Users_This_Day');showNotVerifyThisDay()">
+        <div class="num">{{numOfAllNotVerifyUsers.numNotVerifyUsersAddedToday}}</div>
+        <div class="title">
+          Users Not Verified Today
+        </div>
+      </div>
+      <div class="child  d-flex flex-column" [class.active]="activeDiv === 'show_All_Not_Verify_Users_This_Month'"
+        (click)="setActiveDiv('show_All_Not_Verify_Users_This_Month');showNotVerifyThisMonth()">
+        <div class="num">{{numOfAllNotVerifyUsers.numNotVerifyUsersAddedThisMonth}}</div>
+        <div class="title">
+          Users Not Verified This Month
+        </div>
+      </div>
+      <div class="child d-flex flex-column" [class.active]="activeDiv === 'show_All_Not_Verify_Users_This_Year'"
+        (click)="setActiveDiv('show_All_Not_Verify_Users_This_Year');showNotVerifyThisYear()">
+        <div class="num">{{numOfAllNotVerifyUsers.numNotVerifyUserAddThisYear}}</div>
+        <div class="title">
+          Users Not Verified This Year
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="show_All_Not_Verify_Users">
+      <div class="table-wrapper childs">
+        <div *ngIf="allNotVerifyUsers.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allNotVerifyUsers.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">User Email</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let not_verify of allNotVerifyUsers">
+            <tr>
+              <td>
+                <h6>{{not_verify.id}}</h6>
+              </td>
+              <td>
+                <h6>{{not_verify.name}}</h6>
+              </td>
+              <td>
+                <h6>{{not_verify.email}}</h6>
+              </td>
+              <td>
+                <div>
+                  <a (click)="valid=true; idCheckAlert=not_verify.id"><i class="fa-solid fa-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+            <div class="alert alert-danger" role="alert" *ngIf="valid && idCheckAlert==not_verify.id">
+              <p>Are you sure, you want to delete item ID:{{not_verify.id}}?</p>
+              <button type="button" class="btn btn-outline-success" (click)="valid=false">Cancel</button>
+              <button type="button" class="btn btn-outline-danger" (click)="deleteUser(not_verify.id)">OK</button>
+            </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div *ngIf="show_All_Not_Verify_Users_This_Day">
+
+      <div class="table-wrapper childs">
+        <div *ngIf="allNotVerifyUsersToday.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allNotVerifyUsersToday.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">User Email</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let not_verify of allNotVerifyUsersToday">
+            <tr>
+              <td>
+                <h6>{{not_verify.id}}</h6>
+              </td>
+              <td>
+                <h6>{{not_verify.name}}</h6>
+              </td>
+              <td>
+                <h6>{{not_verify.email}}</h6>
+              </td>
+              <td>
+                <div>
+                  <a (click)="valid=true; idCheckAlert=not_verify.id"><i class="fa-solid fa-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+            <div class="alert alert-danger" role="alert" *ngIf="valid && idCheckAlert==not_verify.id">
+              <p>Are you sure, you want to delete item ID:{{not_verify.id}}?</p>
+              <button type="button" class="btn btn-outline-success" (click)="valid=false">Cancel</button>
+              <button type="button" class="btn btn-outline-danger" (click)="deleteUser(not_verify.id)">OK</button>
+            </div>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="show_All_Not_Verify_Users_This_Month">
+      <div class="table-wrapper childs">
+        <div *ngIf="allNotVerifyUsersThisMonth.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allNotVerifyUsersThisMonth.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">User Email</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let not_verify of allNotVerifyUsersThisMonth">
+            <tr>
+              <td>
+                <h6>{{not_verify.id}}</h6>
+              </td>
+              <td>
+                <h6>{{not_verify.name}}</h6>
+              </td>
+              <td>
+                <h6>{{not_verify.email}}</h6>
+              </td>
+              <td>
+                <div>
+                  <a (click)="valid=true; idCheckAlert=not_verify.id"><i class="fa-solid fa-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+            <div class="alert alert-danger" role="alert" *ngIf="valid && idCheckAlert==not_verify.id">
+              <p>Are you sure, you want to delete item ID:{{not_verify.id}}?</p>
+              <button type="button" class="btn btn-outline-success" (click)="valid=false">Cancel</button>
+              <button type="button" class="btn btn-outline-danger" (click)="deleteUser(not_verify.id)">OK</button>
+            </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="show_All_Not_Verify_Users_This_Year">
+      <div class="table-wrapper childs">
+        <div *ngIf="allNotVerifyUsersThisYear.length==0">
+          <app-no-data></app-no-data>
+        </div>
+        <table class="table" *ngIf="allNotVerifyUsersThisYear.length!=0">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">User Email</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let not_verify of allNotVerifyUsersThisYear">
+            <tr>
+              <td>
+                <h6>{{not_verify.id}}</h6>
+              </td>
+              <td>
+                <h6>{{not_verify.name}}</h6>
+              </td>
+              <td>
+                <h6>{{not_verify.email}}</h6>
+              </td>
+              <td>
+                <div>
+                  <a (click)="valid=true; idCheckAlert=not_verify.id"><i class="fa-solid fa-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+            <div class="alert alert-danger" role="alert" *ngIf="valid && idCheckAlert==not_verify.id">
+              <p>Are you sure, you want to delete item ID:{{not_verify.id}}?</p>
+              <button type="button" class="btn btn-outline-success" (click)="valid=false">Cancel</button>
+              <button type="button" class="btn btn-outline-danger" (click)="deleteUser(not_verify.id)">OK</button>
+            </div>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

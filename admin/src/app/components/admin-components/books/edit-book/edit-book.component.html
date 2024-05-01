@@ -1,0 +1,116 @@
+<div class="parent">
+  <div class="container">
+    <div class="py-5">
+      <form class="container form" #carFrom="ngForm" (ngSubmit)="onSubmit(carFrom.value)" ngNativeValidate>
+        <h4 class="mb-5">EDIT BOOK</h4>
+
+        <div class="mb-3">
+          <label class="mb-2">Book Name:</label>
+          <input type="text" class="form-control" name="Name" [(ngModel)]="book.Name" #name="ngModel"
+            placeholder="Enter Book Name" [class.is-invalid]="name.invalid && name.touched" minlength="2" required>
+          <div *ngIf="name.errors && name.touched">
+            <small class="text-danger" *ngIf="name.errors?.['required']">Book Name is required</small>
+            <small class="text-danger" *ngIf="name.errors?.['minlength']">Please enter at least 2
+              character</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="mb-2">Author:</label>
+          <input type="text" class="form-control" placeholder="Enter Author" name="Author" [(ngModel)]="book.Author"
+            #Author="ngModel" [class.is-invalid]="Author.invalid && Author.touched" minlength="2" required>
+          <div *ngIf="Author.errors && Author.touched">
+            <small class="text-danger" *ngIf="Author.errors?.['required']">Author is
+              required</small>
+            <small class="text-danger" *ngIf="Author.errors?.['minlength']">Please enter at least 2
+              character</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="mb-2">Department:</label>
+          <input type="text" class="form-control" placeholder="Enter Department" name="Department"
+            [(ngModel)]="book.Department" #Department="ngModel"
+            [class.is-invalid]="Department.invalid && Department.touched" minlength="5" required>
+          <div *ngIf="Department.errors && Department.touched">
+            <small class="text-danger" *ngIf="Department.errors?.['required']">Department is
+              required</small>
+            <small class="text-danger" *ngIf="Department.errors?.['minlength']">Please enter at least 5
+              character</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="mb-2">Description:</label>
+          <input type="text" class="form-control" placeholder="Enter Description" name="Description"
+            [(ngModel)]="book.Description" #Description="ngModel"
+            [class.is-invalid]="Description.invalid && Description.touched" minlength="5" required>
+          <div *ngIf="Description.errors && Description.touched">
+            <small class="text-danger" *ngIf="Description.errors?.['required']">Description is
+              required</small>
+            <small class="text-danger" *ngIf="Description.errors?.['minlength']">Please enter at least 5
+              character</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="mb-2">Language:</label>
+          <input type="text" class="form-control" placeholder="Enter Book Language" name="Language"
+            [(ngModel)]="book.Language" #Language="ngModel" [class.is-invalid]="Language.invalid && Language.touched"
+            minlength="2" required>
+          <div *ngIf="Language.errors && Language.touched">
+            <small class="text-danger" *ngIf="Language.errors?.['required']">Department is
+              required</small>
+            <small class="text-danger" *ngIf="Language.errors?.['minlength']">Please enter at least 2
+              character</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="mb-2">Price:</label>
+          <input type="number" class="form-control" name="Price" [(ngModel)]="book.Price" #Price="ngModel"
+            placeholder="Enter Price" [class.is-invalid]="Price.invalid && Price.touched" pattern="^\d+(\.\d+)?$"
+            required>
+          <div *ngIf="Price.errors && Price.touched">
+            <small class="text-danger" *ngIf="Price.errors?.['required']">Price is required</small>
+            <small class="text-danger" *ngIf="Price.errors?.['pattern']">
+              Please enter valid price
+            </small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="mb-2">Number Of Pages:</label>
+          <input type="number" class="form-control" name="NumOfPages" [(ngModel)]="book.NumOfPages"
+            #NumOfPages="ngModel" placeholder="Enter Num Of Pages"
+            [class.is-invalid]="NumOfPages.invalid && NumOfPages.touched" pattern="^\d+(\.\d+)?$" required>
+          <div *ngIf="NumOfPages.errors && NumOfPages.touched">
+            <small class="text-danger" *ngIf="NumOfPages.errors?.['required']">Num Of Pages is required</small>
+            <small class="text-danger" *ngIf="NumOfPages.errors?.['pattern']">
+              Please enter valid Num Of Pages
+            </small>
+          </div>
+        </div>
+
+
+
+        <div class="mb-3">
+          <label class="mb-2">Photo:</label>
+          <input type="file" class="form-control" name="Photo" accept="image/*" #Photo="ngModel"
+            [(ngModel)]="book.Photo" required (change)="onPhotoSelected($event)">
+          <div *ngIf="Photo.errors && Photo.touched">
+            <small class="text-danger" *ngIf="Photo.errors?.['required']">Book image is required</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="mb-2">Book:</label>
+          <input type="file" class="form-control" name="File" accept="application/*" #File="ngModel"
+            [(ngModel)]="book.File" required (change)="onBookSelected($event)">
+          <div *ngIf="File.errors && File.touched">
+            <small class="text-danger" *ngIf="File.errors?.['required']">Book file is required</small>
+          </div>
+        </div>
+        <button class="btn w-100 submit mt-3" type="submit">Edit</button>
+        <div class="alert alert-success" role="alert" *ngIf="valid">
+          Your Book Edit successfully
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
